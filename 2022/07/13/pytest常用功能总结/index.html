@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="一、pytest单元测试框架什么是单元测试框架单元测试是指在软件开发当中，针对软件的最小单位（函数，方法）进行正确性的检查测试
+常见的单元测试框架python	javaunittest、pytest	junit、testng
+单元测试框架的作用1、测试发现：从多个py文件里面去找到我们测试用例2、测"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="pytest常用功能总结"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="一、pytest单元测试框架什么是单元测试框架单元测试是指在软件开发当中，针对软件的最小单位（函数，方法）进行正确性的检查测试
+常见的单元测试框架python	javaunittest、pytest	junit、testng
+单元测试框架的作用1、测试发现：从多个py文件里面去找到我们测试用例2、测"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://example.comimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://example.comimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>pytest常用功能总结 - Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">huhu8812</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>pytest常用功能总结</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022-07-13
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/自动化测试-Python/">#自动化测试 Python</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>一、pytest单元测试框架<br>什么是单元测试框架<br>单元测试是指在软件开发当中，针对软件的最小单位（函数，方法）进行正确性的检查测试</p>
+<p>常见的单元测试框架<br>python	java<br>unittest、pytest	junit、testng</p>
+<p>单元测试框架的作用<br>1、测试发现：从多个py文件里面去找到我们测试用例<br>2、测试执行：按照一定的顺序和规则去执行，并生成结果<br>3、测试判断：通过断言判断预期结果和实际结果的差异<br>4、测试报告：统计测试进度，耗时，通过率，生成测试报告<br>二、pytest单元测试框架与自动化测试框架<br>pytest是自动化测试框架的一个重要组成部分，完整的自动化测试框架还包括：<br>pom设计模式、数据驱动、关键字驱动、配件文件的封装、日志、selenium、requests二次封装、断言、报告、邮件通知…..<br>三、pytest简介<br>● pytest是一个非常成熟的python的单元框架，比unittest更灵活<br>● pytest可以和selenium、requests、appium结合实现web自动化，接口自动化，app自动化<br>● pytest可以实现测试用例的跳过以及reruns失败用例重试<br>● pytest可以和allure生成非常美观的测试报告<br>● pytest可以和Jenkins持续集成。<br>● pytest有很多非常强大的插件，并且这些插件能够实现很多的实用的操作。<br>插件	作用<br>pytest-xdist	测试用例分布式执行。多CPU分发。<br>pytest-ordering<br>    用于改变测试用例的执行顺序（从上到下）</p>
+<p>pytest-rerunfailures<br>    用例失败后重跑</p>
+<p>四、pytest发现用例的规则<br>● 模块名必须以test_开头或者_test结尾<br>● 测试类必须以Test开头，并且不能有init方法<br>● 测试方法必须以test开头<br>五、pytest如何运行<br>常用参数<br>        -s：表示输出调试信息，输出print信息<br>        -v：显示更加详细的信息<br>       -x：只要有一个用例失败，测试就会停止<br>        -vs：两个参数可以同时使用<br>        -n：支持多线程或者分布式运行<br>        -maxfail&#x3D;2：如果有两个测试用例失败，测试停止<br>if <strong>name</strong> &#x3D;&#x3D; ‘<strong>main</strong>‘:</p>
+<h1 id="有两个线程来执行testcase-目录下的测试用例"><a href="#有两个线程来执行testcase-目录下的测试用例" class="headerlink" title="有两个线程来执行testcase 目录下的测试用例"></a>有两个线程来执行testcase 目录下的测试用例</h1><pre><code>pytest.main([&#39;-vs&#39;,&#39;testcase&#39;,&#39;-n 2&#39;])
+    --reruns=num：失败用例重跑，将这个模块多执行num次，最后返回结果
+</code></pre>
+<p>if <strong>name</strong> &#x3D;&#x3D; ‘<strong>main</strong>‘:<br>    pytest.main([‘-vs’,’–reruns&#x3D;2’])<br>        -k：根据测试用例的部分字符串指定测试用例<br>if <strong>name</strong> &#x3D;&#x3D; ‘<strong>main</strong>‘:</p>
+<h1 id="在testcase-目录下，带有case的测试用例全部被执行"><a href="#在testcase-目录下，带有case的测试用例全部被执行" class="headerlink" title="在testcase 目录下，带有case的测试用例全部被执行"></a>在testcase 目录下，带有case的测试用例全部被执行</h1><pre><code>pytest.main([&#39;-vs&#39;,&#39;testcase&#39;,&#39;-k &quot;case&quot;&#39;])
+</code></pre>
+<p>通过主函数运行<br>if <strong>name</strong> &#x3D;&#x3D; ‘<strong>main</strong>‘:<br>    pytest.main()<br>if <strong>name</strong> &#x3D;&#x3D; ‘<strong>main</strong>‘:<br>    pytest.main([‘-vs’,’test_id.py’])<br>if <strong>name</strong> &#x3D;&#x3D; ‘<strong>main</strong>‘:</p>
+<h1 id="测试interface-testcase-目录下的全部用例"><a href="#测试interface-testcase-目录下的全部用例" class="headerlink" title="测试interface_testcase 目录下的全部用例"></a>测试interface_testcase 目录下的全部用例</h1><pre><code>pytest.main([&#39;-vs&#39;,&#39;interface_testcase&#39;])
+</code></pre>
+<p>通过命令行模式运行<br>(1)运行所有：pytest<br>(2)指定模块：pytest-vs test_login.py<br>(3)指定目录：pytest-vs .&#x2F;interface_testcase<br>(4)指定目录：pytest-vs .&#x2F;interface_testcase&#x2F;test_interface.py:test_04_func</p>
+<p>通过pytest.ini全局配置文件运行<br>pytest.ini是pytest单元测试框架的核心配置文件</p>
+<ol>
+<li>位置：一般放在项目的根目录</li>
+<li>编码：必须是ANSI，可以使用notepad++修改编码格式</li>
+<li>作用：改变pytest默认的行为</li>
+<li>运行规则：不管是主函数的模式运行还是命令行模式运行，都会读取这个文件</li>
+</ol>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/huhu8812" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
