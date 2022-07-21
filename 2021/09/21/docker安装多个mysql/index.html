@@ -13,7 +13,7 @@
   
   <title>
     
-      栈与队列之Python实现 
+      docker安装多个mysql 
       
       
       |
@@ -154,19 +154,19 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">栈与队列之Python实现</div>
+      <div class="post-title">docker安装多个mysql</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="Update time"></i>
-          2022-07-13 23:48:59
+          2021-09-21 15:45:45
         </span>
         
               <span class="post-categories">
                 <i class="iconfont icon-bookmark" title="Categories"></i>
                 
                 <span class="span--category">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="数据结构与算法">
-                    <b>#</b> 数据结构与算法
+                  <a href="/categories/docker/" title="docker">
+                    <b>#</b> docker
                   </a>
                 </span>
                 
@@ -176,14 +176,14 @@
                 <i class="iconfont icon-tags" title="Tags"></i>
                 
                 <span class="span--tag">
-                  <a href="/tags/Python/" title="Python">
-                    <b>#</b> Python
+                  <a href="/tags/docker/" title="docker">
+                    <b>#</b> docker
                   </a>
                 </span>
                 
                 <span class="span--tag">
-                  <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="数据结构与算法">
-                    <b>#</b> 数据结构与算法
+                  <a href="/tags/mysql/" title="mysql">
+                    <b>#</b> mysql
                   </a>
                 </span>
                 
@@ -191,17 +191,37 @@
           
       </div>
       <div class="markdown-body">
-        <h2 id="1、栈"><a href="#1、栈" class="headerlink" title="1、栈"></a>1、栈</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Stack()    建立一个空的栈对象</span></span><br><span class="line"><span class="comment"># push()     把一个元素添加到栈的最顶层</span></span><br><span class="line"><span class="comment"># pop()      删除栈最顶层的元素，并返回这个元素</span></span><br><span class="line"><span class="comment"># peek()     返回最顶层的元素，并不删除它</span></span><br><span class="line"><span class="comment"># isEmpty()  判断栈是否为空</span></span><br><span class="line"><span class="comment"># size()     返回栈中元素的个数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Stack</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.stack=[]</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isEmpty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.stack==[]</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">push</span>(<span class="params">self,item</span>):</span><br><span class="line">        self.stack.append(item)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pop</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self.isEmpty():</span><br><span class="line">            <span class="keyword">raise</span> IndexError,<span class="string">&#x27;pop from empty stack&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> self.stack.pop()</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">peek</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.stack[-<span class="number">1</span>]</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.stack)</span><br></pre></td></tr></table></figure>
+        <h4 id="1、搜索并拉取MySQL镜像"><a href="#1、搜索并拉取MySQL镜像" class="headerlink" title="1、搜索并拉取MySQL镜像"></a>1、搜索并拉取MySQL镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker search mysql</span><br><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
 
-<h2 id="2、队列"><a href="#2、队列" class="headerlink" title="2、队列"></a>2、队列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Queue()        定义一个空队列，无参数，返回值是空队列。</span></span><br><span class="line"><span class="comment">#enqueue(item)  在队列尾部加入一个数据项，参数是数据项，无返回值。</span></span><br><span class="line"><span class="comment">#dequeue()      删除队列头部的数据项，不需要参数，返回值是被删除的数据，队列本身有变化。</span></span><br><span class="line"><span class="comment">#isEmpty()      检测队列是否为空。无参数，返回布尔值。</span></span><br><span class="line"><span class="comment">#size()         返回队列数据项的数量。无参数，返回一个整数。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Queue</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;模拟队列&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.items = []</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isEmpty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.items == []</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">enqueue</span>(<span class="params">self, item</span>):</span><br><span class="line">        self.items.insert(<span class="number">0</span>,item)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dequeue</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.items.pop()</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.items)</span><br></pre></td></tr></table></figure>
 
+
+<h4 id="2、MySQL容器实例与本地目录映射"><a href="#2、MySQL容器实例与本地目录映射" class="headerlink" title="2、MySQL容器实例与本地目录映射"></a>2、MySQL容器实例与本地目录映射</h4><p>在本地创建两个目录mysql和mysql_otr_backup，用来映射容器内的mysql</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mysql -v /Users/huhu/docker/mysql/log:/var/log/mysql  -v /Users/huhu/docker/mysql/data:/var/lib/mysql  -v /Users/huhu/docker/mysql/conf:/etc/mysql  -e MYSQL_ROOT_PASSWORD=root  -d mysql:5.7</span><br><span class="line">docker run -p 3307:3306 --name mysql_otr_backup -v /Users/huhu/docker/mysql_otr_backup/log:/var/log/mysql  -v /Users/huhu/docker/mysql_otr_backup/data:/var/lib/mysql  -v /Users/huhu/docker/mysql_otr_backup/conf:/etc/mysql  -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7</span><br></pre></td></tr></table></figure>
+
+<p>​			 					 				</p>
+<p>参数说明 </p>
+<p>-p 3306:3306:将容器的 3306 端口映射到主机的 3306 端口<br>-v &#x2F;mydata&#x2F;mysql&#x2F;conf:&#x2F;etc&#x2F;mysql:将配置文件夹挂载到主机<br>-v &#x2F;mydata&#x2F;mysql&#x2F;log:&#x2F;var&#x2F;log&#x2F;mysql:将日志文件夹挂载到主机 -v &#x2F;mydata&#x2F;mysql&#x2F;data:&#x2F;var&#x2F;lib&#x2F;mysql&#x2F;:将配置文件夹挂载到主机 -e MYSQL_ROOT_PASSWORD&#x3D;root:初始化 root 用户的密码 </p>
+<h4 id="3、配置MySQL"><a href="#3、配置MySQL" class="headerlink" title="3、配置MySQL"></a>3、配置MySQL</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[client] </span><br><span class="line"><span class="keyword">default</span><span class="operator">-</span><span class="type">character</span><span class="operator">-</span><span class="keyword">set</span><span class="operator">=</span>utf8</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line"><span class="keyword">default</span><span class="operator">-</span><span class="type">character</span><span class="operator">-</span><span class="keyword">set</span><span class="operator">=</span>utf8</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">init_connect<span class="operator">=</span><span class="string">&#x27;SET collation_connection = utf8_unicode_ci&#x27;</span></span><br><span class="line">init_connect<span class="operator">=</span><span class="string">&#x27;SET NAMES utf8&#x27;</span></span><br><span class="line"><span class="type">character</span><span class="operator">-</span><span class="keyword">set</span><span class="operator">-</span>server<span class="operator">=</span>utf8 </span><br><span class="line"><span class="keyword">collation</span><span class="operator">-</span>server<span class="operator">=</span>utf8_unicode_ci </span><br><span class="line"><span class="keyword">skip</span><span class="operator">-</span><span class="type">character</span><span class="operator">-</span><span class="keyword">set</span><span class="operator">-</span>client<span class="operator">-</span>handshake</span><br><span class="line"><span class="keyword">skip</span><span class="operator">-</span>name<span class="operator">-</span>resolve</span><br></pre></td></tr></table></figure>
+
+<pre><code>                  					 				
+</code></pre>
+<p>注意:解决 MySQL 连接慢的问题 在配置文件中加入如下，并重启 mysql [mysqld]<br>skip-name-resolve </p>
+<p>解释: skip-name-resolve:跳过域名解析 </p>
+<h4 id="4、在本地目录访问mysql"><a href="#4、在本地目录访问mysql" class="headerlink" title="4、在本地目录访问mysql"></a>4、在本地目录访问mysql</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">exec</span> <span class="operator">-</span>it mysql mysql <span class="operator">-</span>uroot <span class="operator">-</span>proot  #第一个mysql是启动的mysql实例的名称</span><br><span class="line">docker <span class="keyword">exec</span> <span class="operator">-</span>it mysql_otr_backup  mysql <span class="operator">-</span>uroot <span class="operator">-</span>proot  #第一个mysql_otr_backup是启动的mysql实例的名称</span><br></pre></td></tr></table></figure>
+
+<p>命令执行后的截图如下</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1658386552952-1046a5cc-bcad-4c7a-ae60-e737314d09ad.png" alt="img"></p>
+<h4 id="5、设置允许root远程连接"><a href="#5、设置允许root远程连接" class="headerlink" title="5、设置允许root远程连接"></a>5、设置允许root远程连接</h4><p>grant all privileges on <em>.</em> to ‘root‘@’%’ identified by ‘root’ with grant option; </p>
+<p>flush privileges; </p>
+<h4 id="6、如何进入docker-mysql容器内部"><a href="#6、如何进入docker-mysql容器内部" class="headerlink" title="6、如何进入docker-mysql容器内部?"></a>6、如何进入docker-mysql容器内部?</h4><p>docker exec -it mysql &#x2F;bin&#x2F;bash </p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1658386628768-b663db6c-ce83-498c-a85c-9f8666c60362.png" alt="img"></p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2021/09/21/docker%E5%AE%89%E8%A3%85%E5%A4%9A%E4%B8%AAmysql/" target="_self">
+              <a href="/2021/08/15/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>Prev</span>
               </a>
@@ -210,15 +230,15 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="Update time"></i>
-              2022-07-13 23:48:59
+              2021-09-21 15:45:45
             </span>
             
                   <span class="post-categories">
                     <i class="iconfont icon-bookmark" title="Categories"></i>
                     
                     <span class="span--category">
-                      <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="数据结构与算法">
-                        <b>#</b> 数据结构与算法
+                      <a href="/categories/docker/" title="docker">
+                        <b>#</b> docker
                       </a>
                     </span>
                     
@@ -228,14 +248,14 @@
                     <i class="iconfont icon-tags" title="Tags"></i>
                     
                     <span class="span--tag">
-                      <a href="/tags/Python/" title="Python">
-                        <b>#</b> Python
+                      <a href="/tags/docker/" title="docker">
+                        <b>#</b> docker
                       </a>
                     </span>
                     
                     <span class="span--tag">
-                      <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="数据结构与算法">
-                        <b>#</b> 数据结构与算法
+                      <a href="/tags/mysql/" title="mysql">
+                        <b>#</b> mysql
                       </a>
                     </span>
                     
@@ -244,7 +264,7 @@
           </div>
           <div class="post-foot-prev">
             
-              <a href="/2022/07/13/Python%E5%AE%9E%E7%8E%B0%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%92%8C%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" target="_self">
+              <a href="/2022/07/13/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%E4%B9%8BPython%E5%AE%9E%E7%8E%B0/" target="_self">
                 <span>Next</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
@@ -261,7 +281,7 @@
     <div class="title">Contents</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E6%A0%88"><span class="toc-text">1、栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E9%98%9F%E5%88%97"><span class="toc-text">2、队列</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E6%90%9C%E7%B4%A2%E5%B9%B6%E6%8B%89%E5%8F%96MySQL%E9%95%9C%E5%83%8F"><span class="toc-text">1、搜索并拉取MySQL镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81MySQL%E5%AE%B9%E5%99%A8%E5%AE%9E%E4%BE%8B%E4%B8%8E%E6%9C%AC%E5%9C%B0%E7%9B%AE%E5%BD%95%E6%98%A0%E5%B0%84"><span class="toc-text">2、MySQL容器实例与本地目录映射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81%E9%85%8D%E7%BD%AEMySQL"><span class="toc-text">3、配置MySQL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81%E5%9C%A8%E6%9C%AC%E5%9C%B0%E7%9B%AE%E5%BD%95%E8%AE%BF%E9%97%AEmysql"><span class="toc-text">4、在本地目录访问mysql</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%E3%80%81%E8%AE%BE%E7%BD%AE%E5%85%81%E8%AE%B8root%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="toc-text">5、设置允许root远程连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6%E3%80%81%E5%A6%82%E4%BD%95%E8%BF%9B%E5%85%A5docker-mysql%E5%AE%B9%E5%99%A8%E5%86%85%E9%83%A8"><span class="toc-text">6、如何进入docker-mysql容器内部?</span></a></li></ol>
       
     </div>
   </div>
@@ -539,12 +559,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%E4%B9%8BPython%E5%AE%9E%E7%8E%B0 + '&url=' + http%3A%2F%2Fexample.com%2F2022%2F07%2F13%2F%25E6%25A0%2588%25E4%25B8%258E%25E9%2598%259F%25E5%2588%2597%25E4%25B9%258BPython%25E5%25AE%259E%25E7%258E%25B0%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + docker%E5%AE%89%E8%A3%85%E5%A4%9A%E4%B8%AAmysql + '&url=' + http%3A%2F%2Fexample.com%2F2021%2F09%2F21%2Fdocker%25E5%25AE%2589%25E8%25A3%2585%25E5%25A4%259A%25E4%25B8%25AAmysql%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2022/07/13/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%E4%B9%8BPython%E5%AE%9E%E7%8E%B0/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2021/09/21/docker%E5%AE%89%E8%A3%85%E5%A4%9A%E4%B8%AAmysql/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         

@@ -13,7 +13,7 @@
   
   <title>
     
-      Category 
+      docker常用命令（持续更新） 
       
       
       |
@@ -145,19 +145,141 @@
 
 
   
-  <!-- 分类页 url形式：https://yoursite/categories/ -->
-  <div class="container category-index">
-    <div>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">自动化测试</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a><span class="category-list-count">1</span></li></ul>
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">docker常用命令（持续更新）</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-08-15 11:37:57
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/docker/" title="docker">
+                    <b>#</b> docker
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/docker/" title="docker">
+                    <b>#</b> docker
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h3 id="1、docker理解"><a href="#1、docker理解" class="headerlink" title="1、docker理解"></a>1、docker理解</h3><p>docker image镜像类似于class类，而启动的容器是一个个实例，而且是互相隔离的</p>
+<h3 id="2、docker命令"><a href="#2、docker命令" class="headerlink" title="2、docker命令"></a>2、docker命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker --help #看帮助吧，用客户端也可以</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、docker-image命令"><a href="#3、docker-image命令" class="headerlink" title="3、docker image命令"></a>3、docker image命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker search mysql #查看已有的image</span><br><span class="line">docker search mysql #搜索image</span><br><span class="line">docker pull mysql:5.7 #拉取mysql, 5.7是一个tag</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、docker容器命令"><a href="#4、docker容器命令" class="headerlink" title="4、docker容器命令"></a>4、docker容器命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker ps </span><br><span class="line"></span><br><span class="line">docker run -it -d --name 要取的别名 镜像名:Tag /bin/bash </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-it 表示 与容器进行交互式启动 -d 表示可后台运行容器 （守护式运行）  --name 给要运行的容器 起的名字  /bin/bash  交互路径</span></span><br><span class="line"></span><br><span class="line">docker restart 容器ID/容器名</span><br><span class="line">docker stop 容器ID/容器名</span><br></pre></td></tr></table></figure>
+
+<h4 id="数据挂载"><a href="#数据挂载" class="headerlink" title="数据挂载"></a>数据挂载</h4><p>简单来讲，就是将容器内的数据与外部宿主机文件绑定起来，类似一个双持久化，当容器删除时，宿主机文件数据目录仍在，下次启动容器只要将数据目录指向宿主机数据所在位置即可恢复！</p>
+<p>-v 宿主机文件存储位置:容器内文件位置 </p>
+<h3 id="提交自己的image镜像"><a href="#提交自己的image镜像" class="headerlink" title="提交自己的image镜像"></a>提交自己的image镜像</h3><p>docker commit -m&#x3D;”提交信息” -a&#x3D;”作者信息” 容器名&#x2F;容器ID 提交后的镜像名:Tag</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/07/23/hexo%E5%8D%9A%E5%AE%A2/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-08-15 11:37:57
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/docker/" title="docker">
+                        <b>#</b> docker
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/docker/" title="docker">
+                        <b>#</b> docker
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/09/21/docker%E5%AE%89%E8%A3%85%E5%A4%9A%E4%B8%AAmysql/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81docker%E7%90%86%E8%A7%A3"><span class="toc-text">1、docker理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81docker%E5%91%BD%E4%BB%A4"><span class="toc-text">2、docker命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81docker-image%E5%91%BD%E4%BB%A4"><span class="toc-text">3、docker image命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81docker%E5%AE%B9%E5%99%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">4、docker容器命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%82%E8%BD%BD"><span class="toc-text">数据挂载</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E8%87%AA%E5%B7%B1%E7%9A%84image%E9%95%9C%E5%83%8F"><span class="toc-text">提交自己的image镜像</span></a></li></ol>
+      
     </div>
   </div>
-  
 
   
+<script src="/js/catalog.js"></script>
 
-  
 
-  
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
+      </div>
+    
+  </div>
+
 
         
 <div class="footer">
@@ -411,12 +533,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + categories + '&url=' + http%3A%2F%2Fexample.com%2Fcategories%2Findex.html + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89 + '&url=' + http%3A%2F%2Fexample.com%2F2021%2F08%2F15%2Fdocker%25E5%25B8%25B8%25E7%2594%25A8%25E5%2591%25BD%25E4%25BB%25A4%25EF%25BC%2588%25E6%258C%2581%25E7%25BB%25AD%25E6%259B%25B4%25E6%2596%25B0%25EF%25BC%2589%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/categories/index.html" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2021/08/15/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
