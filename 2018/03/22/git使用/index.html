@@ -13,7 +13,7 @@
   
   <title>
     
-      Tag 
+      git使用 
       
       
       |
@@ -143,21 +143,139 @@
 
 
 
-  <!-- 标签页 url形式：https://yoursite/tags/ -->
-  <div class="container tag-index">
-    <div>
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/" rel="tag">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag">数据结构与算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/" rel="tag">日志系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" rel="tag">自动化测试</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li></ul>
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">git使用</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2018-03-22 21:50:12
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/git/" title="git">
+                    <b>#</b> git
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/git/" title="git">
+                    <b>#</b> git
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#创建分支dev</span><br><span class="line">git branch dev </span><br><span class="line"></span><br><span class="line">#查看本地所有分支</span><br><span class="line">git branch 	</span><br><span class="line"></span><br><span class="line">#查看本地及远程分支，远程分支为红色</span><br><span class="line">git branch -a </span><br><span class="line"></span><br><span class="line">#切换到branch_name分支</span><br><span class="line">git checkout branch_name 	</span><br><span class="line"></span><br><span class="line">#删除本地分支</span><br><span class="line">git branch -d branch_name 	</span><br><span class="line"></span><br><span class="line">#删除远程分支</span><br><span class="line">git branch -r -d origin/branch-name  </span><br><span class="line">git push origin :branch-name </span><br><span class="line"></span><br><span class="line"># 多分支的代码库，将代码从一个分支转移到另一个分支是常见需求</span><br><span class="line"># 分两种情况。一种情况是，你需要另一个分支的所有代码变动，那么就采用合并（git merge）。</span><br><span class="line"># 另一种情况是，你只需要部分代码变动（某几个提交），这时可以采用 Cherry pick。</span><br><span class="line">git checkout branch_A #先切换到要提交到的分支A</span><br><span class="line">git cherry-pick &lt;commitHash&gt;</span><br><span class="line">git cherry-pick &lt;hashA&gt; &lt;hashB&gt;</span><br><span class="line"></span><br><span class="line">#当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时</span><br><span class="line">git checkout -- &lt;filename&gt;</span><br><span class="line"></span><br><span class="line"># --hard参数的作用是清空工作区与缓存区</span><br><span class="line">git reset --hard head 	#重置到原始版本</span><br><span class="line">git reset --hard &lt;commitHash&gt; 	#回退到某个commit</span><br></pre></td></tr></table></figure>
+
+<h2 id="idea上的操作"><a href="#idea上的操作" class="headerlink" title="idea上的操作"></a>idea上的操作</h2><p>todo</p>
+<h2 id="再深入理解一下Git吧"><a href="#再深入理解一下Git吧" class="headerlink" title="再深入理解一下Git吧"></a>再深入理解一下Git吧</h2><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1658497681436-663a8620-33e2-4b98-a12f-22b5ab88b021.png" alt="img"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1658497734432-e5e810cd-99ba-4e3c-a5c6-b43b776d7518.png" alt="img"></p>
+<h4 id="工作区"><a href="#工作区" class="headerlink" title="工作区"></a>工作区</h4><p>即git init初始化的一个本地仓库</p>
+<h4 id="版本库"><a href="#版本库" class="headerlink" title="版本库"></a>版本库</h4><ul>
+<li>stage（或者叫index）：暂存区</li>
+<li>Git为我们自动创建的第一个分支master</li>
+<li>指向master的一个指针叫HEAD。</li>
+</ul>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2018-03-22 21:50:12
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/git/" title="git">
+                        <b>#</b> git
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/git/" title="git">
+                        <b>#</b> git
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2019/07/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#idea%E4%B8%8A%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-text">idea上的操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%8D%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B8%80%E4%B8%8BGit%E5%90%A7"><span class="toc-text">再深入理解一下Git吧</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA"><span class="toc-text">工作区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%BA%93"><span class="toc-text">版本库</span></a></li></ol></li></ol></li></ol>
+      
     </div>
   </div>
-  
 
   
+<script src="/js/catalog.js"></script>
 
-  
 
-  
 
-  
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
+      </div>
+    
+  </div>
+
 
         
 <div class="footer">
@@ -411,12 +529,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + tags + '&url=' + http%3A%2F%2Fexample.com%2Ftags%2Findex.html + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + git%E4%BD%BF%E7%94%A8 + '&url=' + http%3A%2F%2Fexample.com%2F2018%2F03%2F22%2Fgit%25E4%25BD%25BF%25E7%2594%25A8%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/tags/index.html" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2018/03/22/git%E4%BD%BF%E7%94%A8/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
