@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+<header><meta name="referrer" content="no-referrer"/>
+</header>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="huhu8812" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      自动化测试之持续集成 
+      
+      
+      |
+    
+     huhu8812
+  </title>
+
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/tukuai.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">huhu8812</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">自动化测试之持续集成</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2020-02-02 21:02:45
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">
+                    <b>#</b> 自动化测试
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">
+                    <b>#</b> 自动化测试
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/CI-CD/" title="CI&CD">
+                    <b>#</b> CI&CD
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h2 id="一、docker安装并运行Jenkins"><a href="#一、docker安装并运行Jenkins" class="headerlink" title="一、docker安装并运行Jenkins"></a>一、docker安装并运行Jenkins</h2><h3 id="1、拉取Jenkins-images"><a href="#1、拉取Jenkins-images" class="headerlink" title="1、拉取Jenkins images"></a>1、拉取Jenkins images</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull jenkins</span><br><span class="line">或者</span><br><span class="line">docker pull jenkinsci/blueocean</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、Jenkins与Jenkins-blue-ocean"><a href="#2、Jenkins与Jenkins-blue-ocean" class="headerlink" title="2、Jenkins与Jenkins blue ocean"></a>2、Jenkins与Jenkins blue ocean</h3><p>Blue Ocean 是 pipeline 的可视化UI，同时兼容经典的自由模式的 job。</p>
+<p>如果已经安装了Jenkins，还需要blue ocean的话，可以安装blue ocean插件</p>
+<h3 id="3、docker-run-jenkins"><a href="#3、docker-run-jenkins" class="headerlink" title="3、docker run jenkins"></a>3、docker run jenkins</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name jenkins -uroot -p 9090:8080 -v /Users/huhu/docker/jenkins:/var/jenkins_home jenkins/jenkins</span><br></pre></td></tr></table></figure>
+
+<p>docker容器下<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=jenkins&spm=1001.2101.3001.7020">jenkins</a>设置的端口必须映射到宿主机端口，否则会碰到坑1</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name jenkins-blue-ocean -p 9091:8080 -p 50000:50000 -v /Users/huhu/docker/jenkins-blue-ocean:/var/jenkins_home jenkinsci/blueocean</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="二、新建一个Jenkins-agent配置并运行"><a href="#二、新建一个Jenkins-agent配置并运行" class="headerlink" title="二、新建一个Jenkins agent配置并运行"></a>二、新建一个Jenkins agent配置并运行</h2><h4 id="新建节点"><a href="#新建节点" class="headerlink" title="新建节点"></a>新建节点</h4><p>管理Jenkins - 节点管理 - 新建节点<img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1659599597443-71e745f9-da40-4feb-8539-e389e8587d97.png" alt="img"></p>
+<h4 id="配置节点"><a href="#配置节点" class="headerlink" title="配置节点"></a>配置节点</h4><p>Remote root directory（远程工作目录）：节点用来运行构建的作业的专用目录</p>
+<p>Labels（标签）：可以为一组节点设置同一标签，然后配置构建作业只运行在某个特定标签的从节点上。如操作系统(CentOS、Ubuntu、SUSE</p>
+<p>Availability（启动和停止从节点的时间）：有三种选择，通常选第一种，尽量保持代理在线</p>
+<p>Environment variables（环境变量）：这些环境变量将传递到构建作业中</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1659599722112-cac8a384-2cbc-434d-b6ae-3b0e87e3455c.png" alt="img"></p>
+<h4 id="用docker打包一个具备Python环境的Jenkins-image"><a href="#用docker打包一个具备Python环境的Jenkins-image" class="headerlink" title="用docker打包一个具备Python环境的Jenkins image"></a>用docker打包一个具备Python环境的Jenkins image</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">基于jenkins/inbound-agent:latest这个基础镜像镜像构建镜像</span></span><br><span class="line">FROM jenkins/inbound-agent:latest</span><br><span class="line">USER root</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">切换工作空间目录</span></span><br><span class="line">WORKDIR /Users/huhu/测试/自动化/api_autotest_0620</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将python项目依赖包文件添加到镜像</span></span><br><span class="line">ADD ./requirements.txt /Users/huhu/测试/自动化/api_autotest_0620</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">安装依赖包</span></span><br><span class="line">RUN apt-get update &amp;&amp; apt-get install -y \</span><br><span class="line">    python3.9 \</span><br><span class="line">    python3-pip</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置显示端口为99</span></span><br><span class="line">ENV DISPLAY=:99</span><br><span class="line"></span><br><span class="line">USER jenkins</span><br></pre></td></tr></table></figure>
+
+<p>打包命令：docker build -t jenkins:slave-with-python-apitest-0620 .</p>
+<h4 id="注册节点到master主机上"><a href="#注册节点到master主机上" class="headerlink" title="注册节点到master主机上"></a>注册节点到master主机上</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --init jenkins/inbound-agent -url http://10.205.19.20:9091 85e634ec20c0cfa4055cc21ff23ff04a2240dcfdb3f4d490b69ca7a118b0524b apitest_0620</span><br><span class="line"></span><br><span class="line">docker run --init jenkins:slave-with-python-apitest-0620 -url http://10.205.19.20:9091 85e634ec20c0cfa4055cc21ff23ff04a2240dcfdb3f4d490b69ca7a118b0524b apitest_0620</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、搭建Jenkins-pipeline"><a href="#三、搭建Jenkins-pipeline" class="headerlink" title="三、搭建Jenkins pipeline"></a>三、搭建Jenkins pipeline</h2><h2 id="搭建自由风格的项目"><a href="#搭建自由风格的项目" class="headerlink" title="搭建自由风格的项目"></a>搭建自由风格的项目</h2><p>选择项目要跑的节点</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1659607793410-eb483c9b-edb0-4e28-9a42-b1dee1aced57.png" alt="img"></p>
+<h2 id="四、集成allure报告"><a href="#四、集成allure报告" class="headerlink" title="四、集成allure报告"></a>四、集成allure报告</h2><p>1、安装Jenkins allure插件</p>
+<p>2、全局工具配置</p>
+<p>Manage Jenkins –&gt; Global Tool Configuration</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1659605045412-5bb75154-739c-4a7b-98bf-d037d690cb8b.png" alt="img"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1659605069585-1210bd07-587c-44fd-8162-0480dedc22a1.png" alt="img"></p>
+<p>3、添加pipeline脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent &#123;label &#x27;apitest_0620&#x27;&#125;</span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(&#x27;install packages&#x27;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh &#x27;pip3 install --upgrade pip&#x27;</span><br><span class="line">                sh &#x27;pip3 install -r requirements.txt&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&#x27;run test&#x27;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh &#x27;python3 run_test.py&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    post &#123;</span><br><span class="line">        success &#123;</span><br><span class="line">        // 注意报告地址写相对路径，也就是--alluredir后面的路径</span><br><span class="line">        allure includeProperties: false, jdk: &#x27;jdk9&#x27;, results: [[path: &#x27;report/data&#x27;]]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="五、遇到的坑与问题"><a href="#五、遇到的坑与问题" class="headerlink" title="五、遇到的坑与问题"></a>五、遇到的坑与问题</h2><h3 id="1、docker-run-jenkins静态agent报错"><a href="#1、docker-run-jenkins静态agent报错" class="headerlink" title="1、docker run jenkins静态agent报错"></a>1、docker run jenkins静态agent报错</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1659502412337-66f88514-37a8-4817-98a7-8490af401578.png" alt="img"></p>
+<p>解决办法参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/tony_you/article/details/107790074">https://blog.csdn.net/tony_you/article/details/107790074</a></p>
+<h3 id="2、如何修改已运行容器的端口映射"><a href="#2、如何修改已运行容器的端口映射" class="headerlink" title="2、如何修改已运行容器的端口映射"></a>2、如何修改已运行容器的端口映射</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiaoyao404/p/16361873.html">https://www.cnblogs.com/xiaoyao404/p/16361873.html</a></p>
+<h2 id="六、Jenkins基础"><a href="#六、Jenkins基础" class="headerlink" title="六、Jenkins基础"></a>六、Jenkins基础</h2><h3 id="Jenkins结构图"><a href="#Jenkins结构图" class="headerlink" title="Jenkins结构图"></a>Jenkins结构图</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1659420366711-6324395b-a007-45f1-9b2c-2e0d20386be2.png" alt="img"></p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2019/01/13/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%E4%B9%8BPython%E5%AE%9E%E7%8E%B0/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2020-02-02 21:02:45
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">
+                        <b>#</b> 自动化测试
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">
+                        <b>#</b> 自动化测试
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/CI-CD/" title="CI&CD">
+                        <b>#</b> CI&CD
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/07/13/pytest%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD%E6%80%BB%E7%BB%93/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81docker%E5%AE%89%E8%A3%85%E5%B9%B6%E8%BF%90%E8%A1%8CJenkins"><span class="toc-text">一、docker安装并运行Jenkins</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E6%8B%89%E5%8F%96Jenkins-images"><span class="toc-text">1、拉取Jenkins images</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81Jenkins%E4%B8%8EJenkins-blue-ocean"><span class="toc-text">2、Jenkins与Jenkins blue ocean</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81docker-run-jenkins"><span class="toc-text">3、docker run jenkins</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAJenkins-agent%E9%85%8D%E7%BD%AE%E5%B9%B6%E8%BF%90%E8%A1%8C"><span class="toc-text">二、新建一个Jenkins agent配置并运行</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E8%8A%82%E7%82%B9"><span class="toc-text">新建节点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%8A%82%E7%82%B9"><span class="toc-text">配置节点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8docker%E6%89%93%E5%8C%85%E4%B8%80%E4%B8%AA%E5%85%B7%E5%A4%87Python%E7%8E%AF%E5%A2%83%E7%9A%84Jenkins-image"><span class="toc-text">用docker打包一个具备Python环境的Jenkins image</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E8%8A%82%E7%82%B9%E5%88%B0master%E4%B8%BB%E6%9C%BA%E4%B8%8A"><span class="toc-text">注册节点到master主机上</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%90%AD%E5%BB%BAJenkins-pipeline"><span class="toc-text">三、搭建Jenkins pipeline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E8%87%AA%E7%94%B1%E9%A3%8E%E6%A0%BC%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="toc-text">搭建自由风格的项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%9B%86%E6%88%90allure%E6%8A%A5%E5%91%8A"><span class="toc-text">四、集成allure报告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%E4%B8%8E%E9%97%AE%E9%A2%98"><span class="toc-text">五、遇到的坑与问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81docker-run-jenkins%E9%9D%99%E6%80%81agent%E6%8A%A5%E9%94%99"><span class="toc-text">1、docker run jenkins静态agent报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E5%B7%B2%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8%E7%9A%84%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="toc-text">2、如何修改已运行容器的端口映射</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81Jenkins%E5%9F%BA%E7%A1%80"><span class="toc-text">六、Jenkins基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Jenkins%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="toc-text">Jenkins结构图</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/huhu8812">Copyright © 2022 huhu8812</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%B9%8B%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90 + '&url=' + http%3A%2F%2Fexample.com%2F2020%2F02%2F02%2F%25E8%2587%25AA%25E5%258A%25A8%25E5%258C%2596%25E6%25B5%258B%25E8%25AF%2595%25E4%25B9%258B%25E6%258C%2581%25E7%25BB%25AD%25E9%259B%2586%25E6%2588%2590%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2020/02/02/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%B9%8B%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
+  
+  
+<script src="/js/shares.js"></script>
+
+
+
+      </div>
+    </div>
+  </body>
+</html>
