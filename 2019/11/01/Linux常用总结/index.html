@@ -13,7 +13,7 @@
   
   <title>
     
-      TestNG常用总结 
+      Linux常用总结 
       
       
       |
@@ -154,36 +154,19 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">TestNG常用总结</div>
+      <div class="post-title">Linux常用总结</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="Update time"></i>
-          2019-10-07 17:00:06
+          2019-11-01 10:30:07
         </span>
         
-              <span class="post-categories">
-                <i class="iconfont icon-bookmark" title="Categories"></i>
-                
-                <span class="span--category">
-                  <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">
-                    <b>#</b> 自动化测试
-                  </a>
-                </span>
-                
-              </span>
-          
               <span class="post-tags">
                 <i class="iconfont icon-tags" title="Tags"></i>
                 
                 <span class="span--tag">
-                  <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">
-                    <b>#</b> 自动化测试
-                  </a>
-                </span>
-                
-                <span class="span--tag">
-                  <a href="/tags/TestNG/" title="TestNG">
-                    <b>#</b> TestNG
+                  <a href="/tags/Linux/" title="Linux">
+                    <b>#</b> Linux
                   </a>
                 </span>
                 
@@ -191,90 +174,48 @@
           
       </div>
       <div class="markdown-body">
-        <h2 id="一、testNG介绍"><a href="#一、testNG介绍" class="headerlink" title="一、testNG介绍"></a>一、testNG介绍</h2><p>TestNG是Java中的一个测试框架， 类似于JUnit 和NUnit,   功能都差不多， 只是功能更加强大，使用也更方便</p>
-<p>Java中已经有一个JUnit的测试框架了。  TestNG比JUnit功能强大的多。  测试人员一般用TestNG来写自动化测试。  开发人员一般用JUnit写单元测试。</p>
-<h2 id="二、常用注解"><a href="#二、常用注解" class="headerlink" title="二、常用注解"></a>二、常用注解</h2><table>
-<thead>
-<tr>
-<th><strong>注解</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>@BeforeSuite</strong></td>
-<td>注解的方法将只运行一次，运行所有测试前此套件中。</td>
-</tr>
-<tr>
-<td><strong>@AfterSuite</strong></td>
-<td>注解的方法将只运行一次此套件中的所有测试都运行之后。</td>
-</tr>
-<tr>
-<td><strong>@BeforeClass</strong></td>
-<td>注解的方法将只运行一次先行先试在当前类中的方法调用。</td>
-</tr>
-<tr>
-<td><strong>@AfterClass</strong></td>
-<td>注解的方法将只运行一次后已经运行在当前类中的所有测试方法。</td>
-</tr>
-<tr>
-<td><strong>@BeforeTest</strong></td>
-<td>注解的方法将被运行之前的任何测试方法属于内部类的 <test>标签的运行。</td>
-</tr>
-<tr>
-<td><strong>@AfterTest</strong></td>
-<td>注解的方法将被运行后，所有的测试方法，属于内部类的<test>标签的运行。</td>
-</tr>
-<tr>
-<td><strong>@BeforeGroups</strong></td>
-<td>组的列表，这种配置方法将之前运行。此方法是保证在运行属于任何这些组第一个测试方法，该方法被调用。</td>
-</tr>
-<tr>
-<td><strong>@AfterGroups</strong></td>
-<td>组的名单，这种配置方法后，将运行。此方法是保证运行后不久，最后的测试方法，该方法属于任何这些组被调用。</td>
-</tr>
-<tr>
-<td><strong>@BeforeMethod</strong></td>
-<td>注解的方法将每个测试方法之前运行。</td>
-</tr>
-<tr>
-<td><strong>@AfterMethod</strong></td>
-<td>被注释的方法将被运行后，每个测试方法。</td>
-</tr>
-<tr>
-<td><strong>@DataProvider</strong></td>
-<td>标志着一个方法，提供数据的一个测试方法。注解的方法必须返回一个Object[] []，其中每个对象[]的测试方法的参数列表中可以分配。该@Test 方法，希望从这个DataProvider的接收数据，需要使用一个dataProvider名称等于这个注解的名字。</td>
-</tr>
-<tr>
-<td><strong>@Factory</strong></td>
-<td>作为一个工厂，返回TestNG的测试类的对象将被用于标记的方法。该方法必须返回Object[]。</td>
-</tr>
-<tr>
-<td><strong>@Listeners</strong></td>
-<td>定义一个测试类的监听器。</td>
-</tr>
-<tr>
-<td><strong>@Parameters</strong></td>
-<td>介绍如何将参数传递给@Test方法。</td>
-</tr>
-<tr>
-<td><strong>@Test</strong></td>
-<td>标记一个类或方法作为测试的一部分。</td>
-</tr>
-</tbody></table>
-<h2 id="三、testNG如何执行测试"><a href="#三、testNG如何执行测试" class="headerlink" title="三、testNG如何执行测试"></a>三、testNG如何执行测试</h2><h3 id="1、直接在方法上右键执行"><a href="#1、直接在方法上右键执行" class="headerlink" title="1、直接在方法上右键执行"></a>1、直接在方法上右键执行</h3><p>右键要执行的方法，点Run</p>
-<h3 id="2、testng-xml文件来执行"><a href="#2、testng-xml文件来执行" class="headerlink" title="2、testng.xml文件来执行"></a>2、testng.xml文件来执行</h3><p>把要执行的case, 放入testng.xml文件中。 右键点击testng.xml, 点Run As</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">testng.xml</span><br><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span><span class="meta">&lt;!DOCTYPE <span class="keyword">suite</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;http://testng.org/testng-1.0.dtd&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">suite</span> <span class="attr">name</span>=<span class="string">&quot;Suite1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">test</span> <span class="attr">name</span>=<span class="string">&quot;test12&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">classes</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">&quot;TankLearn2.Learn.TestNGLearn1&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">classes</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">suite</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3、testNG按顺序执行case"><a href="#3、testNG按顺序执行case" class="headerlink" title="3、testNG按顺序执行case"></a>3、testNG按顺序执行case</h3><p>在testng.xml中，可以控制测试用例按顺序执行。  当preserve-order&#x3D;”true”是，可以保证节点下面的方法是按顺序执行的</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span><span class="meta">&lt;!DOCTYPE <span class="keyword">suite</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;http://testng.org/testng-1.0.dtd&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">suite</span> <span class="attr">name</span>=<span class="string">&quot;Suite1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">test</span> <span class="attr">name</span>=<span class="string">&quot;test12&quot;</span> <span class="attr">preserve-order</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">classes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">&quot;TankLearn2.Learn.TestNGLearn1&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">methods</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span> <span class="attr">name</span>=<span class="string">&quot;TestNgLearn3&quot;</span> /&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span> <span class="attr">name</span>=<span class="string">&quot;TestNgLearn1&quot;</span> /&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span> <span class="attr">name</span>=<span class="string">&quot;TestNgLearn2&quot;</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">methods</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">classes</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">suite</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+        <h2 id="Linux内核"><a href="#Linux内核" class="headerlink" title="Linux内核"></a>Linux内核</h2><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667289355669-73c5f401-ed82-4a16-a27d-88ca1c97bae0.png" alt="img"></p>
+<h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><h3 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h3><p>Mac系统快捷键是control</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667289692821-fca374ae-4266-4088-a8f1-dc77c44edff7.png" alt="img"></p>
+<h3 id="清屏"><a href="#清屏" class="headerlink" title="清屏"></a>清屏</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667289805538-ed3874a1-49a8-4130-a9bb-19c21251dbd7.png" alt="img"></p>
+<h3 id="强制停止"><a href="#强制停止" class="headerlink" title="强制停止"></a>强制停止</h3><p>win：ctrl+c</p>
+<p>mac：control+c</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667289933107-f1364ac2-8f22-47ef-8337-a3a8d9692a72.png" alt="img"></p>
+<h3 id="历史命令搜索history（配合grep）"><a href="#历史命令搜索history（配合grep）" class="headerlink" title="历史命令搜索history（配合grep）"></a>历史命令搜索history（配合grep）</h3><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667269879992-228bdef2-3990-48d9-af13-cbf2c0afd0e7.png" alt="img"></p>
+<h3 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667269928542-0485e38d-7dab-42f7-8e6f-24bcf6a084a9.png" alt="img"></p>
+<h3 id="管道符"><a href="#管道符" class="headerlink" title="管道符"></a>管道符</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667270003926-a017bc40-45d8-4af1-99bd-f6fc92618b8b.png" alt="img">	</p>
+<hr>
+<h3 id="touch-amp-cat-amp-more"><a href="#touch-amp-cat-amp-more" class="headerlink" title="touch&amp;cat&amp;more"></a>touch&amp;cat&amp;more</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667270544778-af95b9c2-3603-4a01-8b79-2462a801f58a.png" alt="img">	</p>
+<hr>
+<h3 id="echo类似于print语句"><a href="#echo类似于print语句" class="headerlink" title="echo类似于print语句"></a>echo类似于print语句</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667274543328-91354622-67cf-4f95-939d-dae38eae9148.png" alt="img"></p>
+<h3 id="、、反引号"><a href="#、、反引号" class="headerlink" title="、、反引号"></a>、、反引号</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667274615452-bb472254-f3e3-47b3-bcc9-51b16185638a.png" alt="img"></p>
+<h3 id="gt-和-gt-gt-重定向符"><a href="#gt-和-gt-gt-重定向符" class="headerlink" title="&gt;和&gt;&gt; 重定向符"></a>&gt;和&gt;&gt; 重定向符</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667274758748-3ca45101-ca36-48cc-be8f-9d979568e4d6.png" alt="img"></p>
+<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667274798192-84ce09fc-b54c-4d68-8d98-bc0c9a87a2b6.png" alt="img"></p>
+<h3 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667275508797-d9fa91b8-5b3f-4de7-b283-dc63fd498eca.png" alt="img"></p>
+<h3 id="which"><a href="#which" class="headerlink" title="which"></a>which</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667275590715-0f80bee5-b9ef-4fd8-99c9-d82271ea8856.png" alt="img"></p>
+<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>按照文件名搜索</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667288155192-cbe33e56-b4f1-4349-a7cd-0b6254b0b908.png" alt="img"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667288418317-f4358208-4ffd-4b64-a7de-b38d0522eb65.png" alt="img"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667288452427-25e3c8e5-25c3-40c2-a9f9-272b1a4d8864.png" alt="img"></p>
+<h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667289094187-202dfa72-ebcc-43e3-a239-0567340c435b.png" alt="img"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667289125018-168e656d-3ede-4762-8e57-1f99875e5610.png" alt="img"></p>
+<h3 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667289189548-33744475-3a25-4720-9f03-e3dd2e8519a4.png" alt="img"></p>
+<hr>
+<h2 id="vi-x2F-vim"><a href="#vi-x2F-vim" class="headerlink" title="vi&#x2F;vim"></a>vi&#x2F;vim</h2><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667275099078-596fd66f-1d7e-48bf-a711-30487e7a3c98.png" alt="img"></p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667275163845-5c3758f3-bdb6-46d4-8562-329e9f3d9485.png" alt="img"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667275195448-dc713e38-5b7d-43bb-8bad-303f50d2e5b5.png" alt="img"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667275253263-657057a4-df4a-44c1-a88b-67dca737dea3.png" alt="img"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667275303459-72ffe682-654f-49cc-bc92-056b4f5a08af.png" alt="img"></p>
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667288606967-379bbc09-01eb-4b52-b46e-41f6234c0d95.png" alt="img"></p>
+<h3 id="查看端口调用nmap-amp-lsof-amp-netstat"><a href="#查看端口调用nmap-amp-lsof-amp-netstat" class="headerlink" title="查看端口调用nmap&amp;lsof&amp;netstat"></a>查看端口调用nmap&amp;lsof&amp;netstat</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667288746458-a294df86-6f9c-4955-8b0a-58b78131ce6f.png" alt="img"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29556877/1667288894806-05e17733-ac60-4dbf-b091-ca944b53fbdc.png" alt="img"></p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2019/03/13/Selenium%E4%B9%8B%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D/" target="_self">
+              <a href="/2019/10/07/TestNG%E5%B8%B8%E7%94%A8%E6%80%BB%E7%BB%93/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>Prev</span>
               </a>
@@ -283,32 +224,15 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="Update time"></i>
-              2019-10-07 17:00:06
+              2019-11-01 10:30:07
             </span>
             
-                  <span class="post-categories">
-                    <i class="iconfont icon-bookmark" title="Categories"></i>
-                    
-                    <span class="span--category">
-                      <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">
-                        <b>#</b> 自动化测试
-                      </a>
-                    </span>
-                    
-                  </span>
-              
                   <span class="post-tags">
                     <i class="iconfont icon-tags" title="Tags"></i>
                     
                     <span class="span--tag">
-                      <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="自动化测试">
-                        <b>#</b> 自动化测试
-                      </a>
-                    </span>
-                    
-                    <span class="span--tag">
-                      <a href="/tags/TestNG/" title="TestNG">
-                        <b>#</b> TestNG
+                      <a href="/tags/Linux/" title="Linux">
+                        <b>#</b> Linux
                       </a>
                     </span>
                     
@@ -317,7 +241,7 @@
           </div>
           <div class="post-foot-prev">
             
-              <a href="/2019/11/01/Linux%E5%B8%B8%E7%94%A8%E6%80%BB%E7%BB%93/" target="_self">
+              <a href="/2020/02/02/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%B9%8B%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" target="_self">
                 <span>Next</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
@@ -334,7 +258,7 @@
     <div class="title">Contents</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81testNG%E4%BB%8B%E7%BB%8D"><span class="toc-text">一、testNG介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-text">二、常用注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81testNG%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E6%B5%8B%E8%AF%95"><span class="toc-text">三、testNG如何执行测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E7%9B%B4%E6%8E%A5%E5%9C%A8%E6%96%B9%E6%B3%95%E4%B8%8A%E5%8F%B3%E9%94%AE%E6%89%A7%E8%A1%8C"><span class="toc-text">1、直接在方法上右键执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81testng-xml%E6%96%87%E4%BB%B6%E6%9D%A5%E6%89%A7%E8%A1%8C"><span class="toc-text">2、testng.xml文件来执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81testNG%E6%8C%89%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8Ccase"><span class="toc-text">3、testNG按顺序执行case</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E5%86%85%E6%A0%B8"><span class="toc-text">Linux内核</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">常用快捷键</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E5%85%89%E6%A0%87"><span class="toc-text">移动光标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E5%B1%8F"><span class="toc-text">清屏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%88%B6%E5%81%9C%E6%AD%A2"><span class="toc-text">强制停止</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4%E6%90%9C%E7%B4%A2history%EF%BC%88%E9%85%8D%E5%90%88grep%EF%BC%89"><span class="toc-text">历史命令搜索history（配合grep）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#grep"><span class="toc-text">grep</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wc"><span class="toc-text">wc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E9%81%93%E7%AC%A6"><span class="toc-text">管道符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#touch-amp-cat-amp-more"><span class="toc-text">touch&amp;cat&amp;more</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#echo%E7%B1%BB%E4%BC%BC%E4%BA%8Eprint%E8%AF%AD%E5%8F%A5"><span class="toc-text">echo类似于print语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%80%81%E3%80%81%E5%8F%8D%E5%BC%95%E5%8F%B7"><span class="toc-text">、、反引号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gt-%E5%92%8C-gt-gt-%E9%87%8D%E5%AE%9A%E5%90%91%E7%AC%A6"><span class="toc-text">&gt;和&gt;&gt; 重定向符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tail"><span class="toc-text">tail</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wget"><span class="toc-text">wget</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#which"><span class="toc-text">which</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-text">find</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ps"><span class="toc-text">ps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kill"><span class="toc-text">kill</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vi-x2F-vim"><span class="toc-text">vi&#x2F;vim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3"><span class="toc-text">端口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E8%B0%83%E7%94%A8nmap-amp-lsof-amp-netstat"><span class="toc-text">查看端口调用nmap&amp;lsof&amp;netstat</span></a></li></ol></li></ol>
       
     </div>
   </div>
@@ -612,12 +536,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + TestNG%E5%B8%B8%E7%94%A8%E6%80%BB%E7%BB%93 + '&url=' + http%3A%2F%2Fexample.com%2F2019%2F10%2F07%2FTestNG%25E5%25B8%25B8%25E7%2594%25A8%25E6%2580%25BB%25E7%25BB%2593%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Linux%E5%B8%B8%E7%94%A8%E6%80%BB%E7%BB%93 + '&url=' + http%3A%2F%2Fexample.com%2F2019%2F11%2F01%2FLinux%25E5%25B8%25B8%25E7%2594%25A8%25E6%2580%25BB%25E7%25BB%2593%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2019/10/07/TestNG%E5%B8%B8%E7%94%A8%E6%80%BB%E7%BB%93/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2019/11/01/Linux%E5%B8%B8%E7%94%A8%E6%80%BB%E7%BB%93/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
